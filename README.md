@@ -29,4 +29,4 @@
       5.  Lateral Movement - Attackers move between services and environments. Common Movement Paths -> VM → cloud control plane & Container → Kubernetes cluster
       6.  Persistence - Attackers establish long-term access like Creating hidden IAM users & Adding SSH keys
 
-
+Link --> https://wiki.wireshark.org/Bluetooth
