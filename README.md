@@ -30,3 +30,113 @@
       6.  Persistence - Attackers establish long-term access like Creating hidden IAM users & Adding SSH keys
 
 Link --> https://wiki.wireshark.org/Bluetooth
+
+Bluetooth File --> wifi-bluetooth-advent.pcap
+
+### Bluetooth Low Energy (BLE)
+
+```wireshark
+btle
+```
+
+or
+
+```wireshark
+bluetooth.le
+```
+
+### BLE Link Layer
+
+```wireshark
+btle.ll
+```
+
+### Bluetooth L2CAP
+
+```wireshark
+btl2cap
+```
+
+### Bluetooth Attribute Protocol (ATT)
+
+```wireshark
+btatt
+```
+
+### Only ATT Requests
+
+```wireshark
+btatt.opcode.method == 0x02
+```
+
+### Only ATT Responses
+
+```wireshark
+btatt.opcode.method == 0x0b
+```
+
+### GATT-related Traffic
+
+```wireshark
+btgatt
+```
+
+### Show Advertising Packets
+
+```wireshark
+btle.advertising_header
+```
+
+### Show Data Channel Packets
+
+```wireshark
+btle.data_header
+```
+
+### Filter by Device MAC Address
+
+Replace with your BLE device address:
+
+```wireshark
+bluetooth.addr == aa:bb:cc:dd:ee:ff
+```
+
+### Filter Read/Write Attribute Operations
+
+#### Read Requests
+
+```wireshark
+btatt.opcode.method == 0x0a
+```
+
+#### Write Requests
+
+```wireshark
+btatt.opcode.method == 0x12
+```
+
+### Show Only Packets with RSSI
+
+```wireshark
+btcommon.eir_ad.entry.device_name
+```
+
+### Useful Combined Filters
+
+#### BLE ATT Traffic Only
+
+```wireshark
+btle && btatt
+```
+
+#### L2CAP + ATT
+
+```wireshark
+btl2cap && btatt
+```
+
+#### Exclude Empty Packets
+
+```wireshark
+!(btle.control_opcode)
+```
